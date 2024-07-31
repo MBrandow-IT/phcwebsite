@@ -8,7 +8,7 @@ export interface URLProps {
 }
 
 // Function to generate metadata dynamically
-const generateMetadata = async ({
+export const generateMetadata = async ({
   searchParams,
 }: URLProps): Promise<Metadata> => {
   const eventId = searchParams?.id;
