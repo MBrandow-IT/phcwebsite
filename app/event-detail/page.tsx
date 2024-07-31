@@ -57,13 +57,12 @@ const Page = async ({ searchParams }: URLProps) => {
     const eventAndFile = await fetchEventById(eventId);
     // console.log(eventAndFile);
 
-    // Generate metadata dynamically based on the fetched event data
     const url = `https://my.pureheart.org/ministryplatformapi/files/${eventAndFile?.File?.UniqueFileId}`;
     console.log(url);
 
     return (
       <>
-        <div>Event Should be in console log.</div>
+        <div>Event Should linked to metadata.</div>
       </>
     );
   } else {
