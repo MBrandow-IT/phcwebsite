@@ -37,7 +37,7 @@ export const generateMetadata = async ({
       siteName: "Pure Heart Church",
       images: [
         {
-          url: `https://pureheart.org/ministryplatformapi/files/${file.UniqueFileId}`,
+          url: `https://my.pureheart.org/ministryplatformapi/files/${file.UniqueFileId}`,
           width: 800,
           height: 450,
           alt: event.Event_Title,
@@ -45,7 +45,7 @@ export const generateMetadata = async ({
       ],
     },
     icons: {
-      icon: `https://pureheart.org/ministryplatformapi/files/${file.UniqueFileId}`,
+      icon: `https://my.pureheart.org/ministryplatformapi/files/${file.UniqueFileId}`,
     },
   };
 };
@@ -55,10 +55,11 @@ const Page = async ({ searchParams }: URLProps) => {
 
   if (eventId) {
     const eventAndFile = await fetchEventById(eventId);
-    console.log(eventAndFile);
+    // console.log(eventAndFile);
 
     // Generate metadata dynamically based on the fetched event data
-    const eventTitle = eventAndFile?.Event?.[0]?.Event_Title || "Event";
+    const url = `https://my.pureheart.org/ministryplatformapi/files/${eventAndFile?.File?.UniqueFileId}`;
+    console.log(url);
 
     return (
       <>
